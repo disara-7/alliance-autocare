@@ -21,6 +21,9 @@ a{color:inherit;text-decoration:none}
 .btn:hover{background:var(--blue-d)}
 .hero .btn,.banner.b2 .btn{background:#fff;color:var(--blue)}
 .hero .btn:hover,.banner.b2 .btn:hover{background:#e6e8ec}
+.hero .hbtns{display:flex;flex-wrap:wrap;gap:14px}
+.hero .btn.out{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px #fff}
+.hero .btn.out:hover{background:rgba(255,255,255,.12)}
 .btn.out{background:transparent;color:var(--fg);box-shadow:inset 0 0 0 2px currentColor}
 .ph{background:repeating-linear-gradient(115deg,rgba(255,255,255,.04) 0 14px,transparent 14px 28px),linear-gradient(135deg,#22324f,#090c13)}
 /* header */
@@ -121,6 +124,11 @@ section{padding:72px 0}
 .banner.b2 p{color:#d8dfeb}
 /* testimonial */
 .bn{display:grid;grid-template-columns:1fr 1.3fr;gap:48px;align-items:center;text-align:left}.bn .imgwrap{background:#fff}.bn img,.bn video{display:block;width:100%;height:auto;max-height:560px;object-fit:contain}.bn p{margin:16px 0 28px}
+.stats{list-style:none;margin:0 0 32px;padding:22px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(128,128,128,.3)}
+.stats li{padding:0 16px;border-left:3px solid var(--blue)}.stats li+li{margin-left:12px}
+.stats b{display:block;font:800 clamp(34px,4vw,48px)/1 "Barlow Condensed","Arial Narrow",Impact,sans-serif;color:var(--blue);text-transform:uppercase}
+.stats span{display:block;margin-top:8px;font-size:13px;line-height:1.35;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+@media (max-width:480px){.stats li{padding:0 10px}.stats li+li{margin-left:6px}.stats span{font-size:11px}}
 #detailing{min-height:640px;display:flex;align-items:center}#detailing .wrap{position:static;width:100%}#detailing .bn>div:first-child{padding-right:24px}
 #detailing .imgwrap{position:absolute;top:0;right:0;bottom:0;width:54%;clip-path:polygon(140px 0,100% 0,100% 100%,0 100%)}#detailing video{width:100%;height:100%;max-height:none;object-fit:cover}
 .rev{display:grid;grid-template-columns:1fr 1.4fr;gap:0;background:var(--soft);color:var(--fg);--c:44px}
@@ -151,6 +159,15 @@ section{padding:72px 0}
 @media (max-width:1000px){.cta-box{flex-direction:column;align-items:flex-start;padding:52px 40px}}
 @media (max-width:760px){.cta{padding-bottom:56px}.cta-box{padding:44px 26px;--c:30px}.cta-btns{flex-direction:column;align-self:stretch}.cta-btns .btn{text-align:center}}
 /* newsletter + footer */
+/* visit */
+.visit .vgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:28px;align-items:stretch}
+.visit .vinfo{background:var(--soft);color:var(--fg);padding:36px;--c:36px;display:flex;flex-direction:column;gap:18px}
+.visit .vinfo h3{font-size:22px;font-weight:800}
+.visit .vinfo p{margin:4px 0 0;color:var(--muted)}
+.visit .vinfo .btn{align-self:flex-start;margin-top:auto}
+.visit .vmap{min-height:420px}
+.visit .vmap iframe{display:block;width:100%;height:100%;min-height:420px;border:0}
+@media (max-width:760px){.visit .vgrid{grid-template-columns:1fr}.visit .vmap,.visit .vmap iframe{min-height:320px}}
 .news{background:var(--bg);border-top:1px solid rgba(128,128,128,.25);color:var(--fg);padding:44px 0}
 .news .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
 .news h2{font-size:34px}
@@ -294,7 +311,7 @@ nav.open{display:block}nav ul{flex-direction:column}
 <div class="wrap"><div class="txt">
 <h1>Everything Your<br>Car Deserves</h1>
 <p>From a showroom shine to a spotless interior, we’ve got the polishes, waxes, wheel care and cleaners to keep your car looking its absolute best.</p>
-<a class="btn" href="#products">Shop now</a>
+<div class="hbtns"><a class="btn" href="#products">Shop Car Care Products</a><a class="btn out" href="#detailing">Book a Detailing Session</a></div>
 </div></div></div>
 
 <div class="wrap split">
@@ -332,6 +349,7 @@ nav.open{display:block}nav ul{flex-direction:column}
 <div class="banner" id="detailing"><div class="wrap bn"><div>
 <h2>We are the detailing experts</h2>
 <p>We make your vehicle look and feel brand new, with services from an exterior cut and polish to interior detailing and full valets.</p>
+<ul class="stats"><li><b>4</b><span>Product families</span></li><li><b>100%</b><span>Hand finished details</span></li><li><b>7 days</b><span>Open for bookings</span></li></ul>
 <a class="btn" href="#">Visit detailing center</a></div><div class="imgwrap"><video class="bn-video" autoplay muted loop playsinline preload="metadata" aria-label="Sudsy blue BMW mid car-wash"><source src="card2.mp4" type="video/mp4"></video></div></div></div>
 
 <div class="banner b2"><video class="b2-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="video.mp4" type="video/mp4"></video><div class="wrap">
@@ -352,6 +370,19 @@ nav.open{display:block}nav ul{flex-direction:column}
 <div class="cta-act"><div class="cta-btns"><a class="btn" href="tel:+94711493493">Book a detail</a><a class="btn out" href="#products">Shop products</a></div>
 <div class="cta-tel">Or call <a href="tel:+94112673767">0112 673 767</a></div></div>
 </div></div></section>
+
+<section class="visit" id="visit"><div class="wrap">
+<div class="hd"><h2>Visit us</h2><p>Drop by our Colombo 07 showroom and detailing centre.</p></div>
+<div class="vgrid">
+<div class="vinfo cut">
+<div><h3>Address</h3><p>17/2 Rosmead Place, Colombo 07</p></div>
+<div><h3>Opening hours</h3><p>Mon - Fri 9.00am - 5.00pm<br>Sat 9.00am - 1.00pm</p></div>
+<div><h3>Call us</h3><p><a href="tel:+94112673767">0112 673 767</a> &nbsp;|&nbsp; <a href="tel:+94711493493">0711 493 493</a></p></div>
+<a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Alliance+Autocare+(Private)+Limited" target="_blank" rel="noopener">Get directions</a>
+</div>
+<div class="vmap"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7908369599954!2d79.8658641!3d6.9155929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25972358f8f1b%3A0x469d4240d3fa8fe4!2sAlliance%20Autocare%20(Private)%20Limited!5e0!3m2!1sen!2slk!4v1791290074164!5m2!1sen!2slk" title="Alliance Autocare on Google Maps" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+</div>
+</div></section>
 
 <div class="news" id="news"><div class="wrap">
 <h2>Sign up for news on new products and offers</h2>
